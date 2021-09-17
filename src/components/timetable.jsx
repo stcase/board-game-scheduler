@@ -2,7 +2,7 @@ import React from "react";
 
 class Timetable extends React.Component {
   render() {
-    const { ttable, onSelect } = this.props;
+    const { ttable, onSelect, onDelete } = this.props;
     return (
       <tr>
         <td>{ttable.name}</td>
@@ -28,6 +28,7 @@ class Timetable extends React.Component {
             className="fa fa-times-circle"
             style={{ cursor: "pointer" }}
             aria-hidden="true"
+            onClick={() => onDelete(ttable)}
           ></i>
         </td>
       </tr>
