@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import Timetables from "./timetables";
 
 class Scheduler extends Component {
   render() {
-    return <div>"Hello, World!"</div>;
+    return (
+      <div>
+        <Timetables />
+      </div>
+    );
   }
 }
 
