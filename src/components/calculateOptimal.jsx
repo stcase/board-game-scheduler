@@ -96,6 +96,10 @@ class CalculateOptimal extends React.Component {
 
   render() {
     const { timetables } = this.props;
+    if (!timetables.length) {
+      return "";
+    }
+
     const solutions = this.calculateOptimal(timetables);
     return (
       <div>
