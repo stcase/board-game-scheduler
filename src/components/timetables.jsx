@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CalculateOptimal from "./calculateOptimal";
 import SelectAddTimetable from "./addTimetable";
 import Timetable from "./timetable";
 
@@ -96,6 +97,7 @@ class Timetables extends Component {
           </tbody>
         </table>
         <SelectAddTimetable onSubmit={this.handleAddTimetable} />
+        <CalculateOptimal timetables={timetables} />
       </div>
     );
   }
