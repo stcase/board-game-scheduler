@@ -1,4 +1,5 @@
 import React from "react";
+import gmtToLocalTime from "./common/timezone";
 
 class Timetable extends React.Component {
   render() {
@@ -7,7 +8,7 @@ class Timetable extends React.Component {
       <tr>
         <td>{ttable.name}</td>
         {[...Array(24).keys()].map((hour) => {
-          const adjustedHour = mod(hour + ttable.gmtOffset, 24);
+          const adjustedHour = gmtToLocalTime(hour, ttable.gmtOffset);
           return (
             <td
               key={ttable.id + "-" + adjustedHour}
@@ -34,11 +35,6 @@ class Timetable extends React.Component {
       </tr>
     );
   }
-}
-
-function mod(n, m) {
-  // Fix the mod bug with negative numbers
-  return ((n % m) + m) % m;
 }
 
 export default Timetable;

@@ -1,73 +1,114 @@
 import React from "react";
+import gmtToLocalTime from "./common/timezone";
 
 class CalculateOptimal extends React.Component {
-  state = { nVerts: 0 };
+  calculateRoundsPerDay = (
+    timetables,
+    ttIdx,
+    elapsedHours,
+    nTurns,
+    gmtHour,
+    visited
+  ) => {
+    const ttable = timetables[ttIdx];
+    const local_hour = gmtToLocalTime(gmtHour, ttable.gmtOffset);
+    const vertexID = ttable.id + " " + gmtHour;
 
-  ModifiedFloydWarshall = (timetables) => {
-    const nVerts = timetables.length * 24;
+    if (visited.includes(vertexID)) {
+      return { vertexID, nTurns, elapsedHours, final: false };
+    }
+    visited.push(vertexID);
 
-    // Initialize Array
-    let dist = Array.from({ length: nVerts }, (a) =>
-      Array(nVerts).fill(Infinity)
-    );
-    let turns = Array.from({ length: nVerts }, (a) => Array(nVerts).fill(0));
+    let rpd;
+    if (ttable.availability.includes(local_hour)) {
+      rpd = this.calculateRoundsPerDay(
+        timetables,
+        (ttIdx + 1) % timetables.length,
+        elapsedHours,
+        nTurns + 1,
+        gmtHour,
+        visited
+      );
+    } else {
+      rpd = this.calculateRoundsPerDay(
+        timetables,
+        ttIdx,
+        elapsedHours + 1,
+        nTurns,
+        (gmtHour + 1) % 24,
+        visited
+      );
+    }
 
-    // Populate edges
-    timetables.map((ttable, tt_idx) => {
-      [...Array(24).keys()].map((gmtHour) => {
-        const localHour = gmtHour + ttable.gmtOffset;
-        const from_vert = tt_idx * 24 + gmtHour;
-        if (ttable.availability.includes(localHour)) {
-          const to_vert = ((tt_idx + 1) % timetables.length) * 24 + gmtHour;
-          dist[from_vert][to_vert] = 0;
-          turns[from_vert][to_vert] = 2;
-        } else {
-          const to_vert = tt_idx * 24 + ((gmtHour + 1) % 24);
-          dist[from_vert][to_vert] = 1;
-          turns[from_vert][to_vert] = 1;
-        }
-      });
-    });
-
-    // Algorithm
-    [...Array(nVerts).keys()].map((k) => {
-      [...Array(nVerts).keys()].map((i) => {
-        [...Array(nVerts).keys()].map((j) => {
-          if (
-            this.weight(dist[i][j], turns[i][j]) >
-            this.weight(dist[i][k], turns[i][k]) +
-              this.weight(dist[k][j], turns[k][j])
-          ) {
-            console.log("updating");
-            dist[i][j] = dist[i][k] + dist[k][j];
-            turns[i][j] = turns[i][k] + turns[k][j];
-          }
-        });
-      });
-    });
-
-    const rounds_per_day = dist.map((row, ri) =>
-      row.map(
-        (d, ci) =>
-          (((turns[ri][ci] - 1) / dist[ri][ci]) * 24) / timetables.length
-      )
-    );
-
-    return turns;
+    if (rpd.final) {
+      return rpd;
+    }
+    if (rpd.vertexID === vertexID) {
+      rpd.nTurns = rpd.nTurns - nTurns;
+      rpd.elapsedHours = rpd.elapsedHours - elapsedHours;
+      rpd.final = true;
+      rpd.rpd = rpd.nTurns / timetables.length / (rpd.elapsedHours / 24);
+      return rpd;
+    }
+    return rpd;
   };
 
-  weight = (dist, turns) => {
-    if (turns === 0) {
-      return Infinity;
-    } else {
-      return dist / turns;
+  getArrayPermutations = (timetables, idx) => {
+    // uses Heap's Algorithm, but doesn't touch the first element
+    // because it doesn't matter who starts
+    const n = timetables.length - 1;
+    let permutation = [...timetables];
+    let c = new Array(n).fill(0);
+    let permutations = [[...permutation]];
+
+    let i = 1;
+    while (i < n) {
+      if (c[i] < i) {
+        if (i % 2 === 0) {
+          const swap = permutation[0 + 1];
+          permutation[0 + 1] = permutation[i + 1];
+          permutation[i + 1] = swap;
+        } else {
+          const swap = permutation[c[i] + 1];
+          permutation[c[i] + 1] = permutation[i + 1];
+          permutation[i + 1] = swap;
+        }
+        permutations.push([...permutation]);
+        c[i]++;
+        i = 1;
+      } else {
+        c[i] = 0;
+        i++;
+      }
     }
+    return permutations;
+  };
+
+  calculateOptimal = (timetables) => {
+    const permutations = this.getArrayPermutations(timetables);
+    let solutions = permutations.map((ttables) => {
+      const solution = this.calculateRoundsPerDay(ttables, 0, 0, 0, 0, []);
+      return { timetables: ttables, solution };
+    });
+    solutions.sort((solA, solB) => solB.solution.rpd - solA.solution.rpd);
+    return solutions;
   };
 
   render() {
     const { timetables } = this.props;
-    const val = this.ModifiedFloydWarshall(timetables);
-    return <p>{JSON.stringify(val)}</p>;
+    const solutions = this.calculateOptimal(timetables);
+    return (
+      <div>
+        {solutions.map((solution) => (
+          <p>
+            {solution.timetables.map((ttable) => " " + ttable.name) +
+              ": " +
+              solution.solution.rpd +
+              " rounds per day"}
+          </p>
+        ))}
+      </div>
+    );
   }
 }
 
