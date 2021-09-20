@@ -4,13 +4,13 @@ Do you play board games with friends online?
 Are you tired of waiting for your friends to finish work and play their turns?
 Now with Board Game Scheduler you can optimize the turn order for the least amount of waiting!
 Find the optimal turn order for playing board games with friends on different schedules.
-Use the tool online at [Github pages](https://stcase.github.io/board-game-scheduler/), or read below for more details.
+Use the tool online through Github pages at [Board Game Scheduler](https://stcase.github.io/board-game-scheduler/), or read below for more details.
 
 ## Development
 
-This project was done in React.js, as part of my attempt to learn react.
+This project was done in React.js as part of my attempt to learn react.
 So there is plenty of room for improvement.
-If you want, feel free to give tips on how to make it better.
+If you want, feel free to give tips on how to make it better or send a pull request.
 Things I want to add to include using JSDoc, unit tests, and typing.
 
 ### Develop
