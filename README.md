@@ -44,7 +44,7 @@ The edge weights between vertices represent the time in hours between turns.
 The graph has the following rules:
 
 - A green--or available--square points to the square below it with an edge weight of 0.
-- A unavailable square points to the square to the right of it with an edge weight of one.
+- An unavailable square points to the square to the right of it with an edge weight of one.
 - When an edge points beyond the bottom or right of the grid, it wraps back to the top or left.
 - From the above, each vertex can only point to one other vertex, but each vertex can have bewteen zero and two vertices pointing to it.
 - All vertices are adjacent to their connecting vertices.
@@ -53,14 +53,15 @@ From those rules, the weighted path length (sum of the edge weights) between two
 The goal then is to maximize the number of turns (or edges with weight 0) per hour (edges with weight one).
 Unfortunately this doesn't fall into the common minimum path problem, because the optimization is a ratio of both the path and the vertices in the path.
 
-Because each vertex only points to one other vertex, it creates some key feature for solving this algorithmically:
+Because each vertex only points to one other vertex and all vertices are adjacent to their connecting vertices, it creates some key features for solving this algorithmically:
 
 - Multiple closed and separate cycles (of the same length) can exist in one graph.
 - However, any closed cycle is equal to the optimal solution for the graph.
 
 The first point is simple: you can have two possibilities of timing as long as they have the same path length.
-For example, in the image below there are two cycles, starting at 11 and 19 in Japan.
-The second is key to solving the problem: any closed cycle is an optimal cycle.
+For example, in the image below there are two cycles for a turn order running from top to bottom.
+One starting at 11 and one at 19 in Japan.
+The second feature in the list is key to solving the problem: any closed cycle is an optimal cycle.
 If there was a more and less frequence cycle in the same graph, the more frequent would intercept with the less frequent (because all vertices are adjacent to their connecting vertices), and thus the less frequent one would become part of the more frequent one.
 
 ![Schedule with two closed cycles](doc/schedule2closedCycles.PNG)
