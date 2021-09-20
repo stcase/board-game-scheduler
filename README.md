@@ -1,7 +1,7 @@
 # Board Game Scheduler
 
 Do you play board games with friends online?
-Are you tired of waiting for your friend to finish work and play his turn?
+Are you tired of waiting for your friends to finish work and play their turns?
 Now with Board Game Scheduler you can optimize the turn order for the least amount of waiting!
 Find the optimal turn order for playing board games with friends on different schedules.
 Use the tool online at [Github pages](https://stcase.github.io/board-game-scheduler/), or read below for more details.

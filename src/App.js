@@ -9,9 +9,9 @@ function App() {
           <h1 class="display-4 fw-normal">Board Game Scheduler</h1>
           <p class="fs-5 text-muted">
             Do you play board games with friends online? Are you tired of
-            waiting for your friend to finish work and play his turn? Now with{" "}
-            <i>Board Game Scheduler</i> you can optimize the turn order for the
-            least amount of waiting! Simply use or{" "}
+            waiting for your friends to finish work and play their turns? Now
+            with <i>Board Game Scheduler</i> you can optimize the turn order for
+            the least amount of waiting! Simply use or{" "}
             <i className="fa fa-plus-square" aria-hidden="true"></i> or{" "}
             <i className="fa fa-times-circle" aria-hidden="true"></i> to add or
             remove players. Pick the time zone and select what hours of the day
