@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/board-game-scheduler/static/css/main.a617e044.chunk.css",
-    "main.js": "/board-game-scheduler/static/js/main.7e4e16ae.chunk.js",
-    "main.js.map": "/board-game-scheduler/static/js/main.7e4e16ae.chunk.js.map",
+    "main.js": "/board-game-scheduler/static/js/main.47f73402.chunk.js",
+    "main.js.map": "/board-game-scheduler/static/js/main.47f73402.chunk.js.map",
     "runtime-main.js": "/board-game-scheduler/static/js/runtime-main.49795e26.js",
     "runtime-main.js.map": "/board-game-scheduler/static/js/runtime-main.49795e26.js.map",
     "static/css/2.fd07a3c7.chunk.css": "/board-game-scheduler/static/css/2.fd07a3c7.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.fd07a3c7.chunk.css",
     "static/js/2.c4d0d5c1.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.7e4e16ae.chunk.js"
+    "static/js/main.47f73402.chunk.js"
   ]
 }
