@@ -74,18 +74,18 @@ class AddTimetable extends React.Component {
             const offset = num - 12;
             return (
               <option key={offset} value={offset}>
-                GMT{offset}
+                UTC{offset}
               </option>
             );
           })}
           <option key="0" value="0">
-            GMT
+            UTC
           </option>
           {[...Array(12).keys()].map((num) => {
             const offset = num + 1;
             return (
               <option key={offset} value={offset}>
-                GMT+{offset}
+                UTC+{offset}
               </option>
             );
           })}

@@ -103,14 +103,19 @@ class CalculateOptimal extends React.Component {
     const solutions = this.calculateOptimal(timetables);
     return (
       <div>
-        {solutions.map((solution) => (
-          <p>
-            {solution.timetables.map((ttable) => " " + ttable.name) +
-              ": " +
-              solution.solution.rpd +
-              " rounds per day"}
-          </p>
-        ))}
+        <h2 class="display-6 text-center mb-4">Optimal Turn Orders</h2>
+        <table className="table">
+          <tbody>
+            {solutions.map((solution) => (
+              <tr>
+                <td>
+                  {solution.timetables.map((ttable) => " -> " + ttable.name)}
+                </td>
+                <td>{solution.solution.rpd + " rounds per day"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }

@@ -79,7 +79,7 @@ class Timetables extends Component {
         <table className="table table-bordered">
           <thead className="thead-dark">
             <tr>
-              <th>GMT</th>
+              <th>UTC</th>
               {[...Array(24).keys()].map((hour) => (
                 <th key={hour}>{hour}</th>
               ))}
