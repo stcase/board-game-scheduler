@@ -63,7 +63,7 @@ For example, in the image below there are two cycles, starting at 11 and 19 in J
 The second is key to solving the problem: any closed cycle is an optimal cycle.
 If there was a more and less frequence cycle in the same graph, the more frequent would intercept with the less frequent (because all vertices are adjacent to their connecting vertices), and thus the less frequent one would become part of the more frequent one.
 
-![Schedule with two closed cycles](doc/schedule2closedCycles.png)
+![Schedule with two closed cycles](doc/schedule2closedCycles.PNG)
 
 The solution is then to traverse the map until a cycle is found, because any cycle is an optimal cycle.
 Once a cycle is found, recurse back to the meeting point and subtract the edge weights (hours) and turns to get the amount of hours and turns in the cycle.
