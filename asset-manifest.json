@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/board-game-scheduler/static/css/main.a617e044.chunk.css",
-    "main.js": "/board-game-scheduler/static/js/main.d975daaf.chunk.js",
-    "main.js.map": "/board-game-scheduler/static/js/main.d975daaf.chunk.js.map",
-    "runtime-main.js": "/board-game-scheduler/static/js/runtime-main.3f622860.js",
-    "runtime-main.js.map": "/board-game-scheduler/static/js/runtime-main.3f622860.js.map",
+    "main.js": "/board-game-scheduler/static/js/main.7e4e16ae.chunk.js",
+    "main.js.map": "/board-game-scheduler/static/js/main.7e4e16ae.chunk.js.map",
+    "runtime-main.js": "/board-game-scheduler/static/js/runtime-main.49795e26.js",
+    "runtime-main.js.map": "/board-game-scheduler/static/js/runtime-main.49795e26.js.map",
     "static/css/2.fd07a3c7.chunk.css": "/board-game-scheduler/static/css/2.fd07a3c7.chunk.css",
-    "static/js/2.2422505e.chunk.js": "/board-game-scheduler/static/js/2.2422505e.chunk.js",
-    "static/js/2.2422505e.chunk.js.map": "/board-game-scheduler/static/js/2.2422505e.chunk.js.map",
-    "static/js/3.ea2e7347.chunk.js": "/board-game-scheduler/static/js/3.ea2e7347.chunk.js",
-    "static/js/3.ea2e7347.chunk.js.map": "/board-game-scheduler/static/js/3.ea2e7347.chunk.js.map",
+    "static/js/2.c4d0d5c1.chunk.js": "/board-game-scheduler/static/js/2.c4d0d5c1.chunk.js",
+    "static/js/2.c4d0d5c1.chunk.js.map": "/board-game-scheduler/static/js/2.c4d0d5c1.chunk.js.map",
+    "static/js/3.4799485b.chunk.js": "/board-game-scheduler/static/js/3.4799485b.chunk.js",
+    "static/js/3.4799485b.chunk.js.map": "/board-game-scheduler/static/js/3.4799485b.chunk.js.map",
     "index.html": "/board-game-scheduler/index.html",
     "static/css/2.fd07a3c7.chunk.css.map": "/board-game-scheduler/static/css/2.fd07a3c7.chunk.css.map",
     "static/css/main.a617e044.chunk.css.map": "/board-game-scheduler/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.2422505e.chunk.js.LICENSE.txt": "/board-game-scheduler/static/js/2.2422505e.chunk.js.LICENSE.txt",
+    "static/js/2.c4d0d5c1.chunk.js.LICENSE.txt": "/board-game-scheduler/static/js/2.c4d0d5c1.chunk.js.LICENSE.txt",
     "static/media/font-awesome.css": "/board-game-scheduler/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.3f622860.js",
+    "static/js/runtime-main.49795e26.js",
     "static/css/2.fd07a3c7.chunk.css",
-    "static/js/2.2422505e.chunk.js",
+    "static/js/2.c4d0d5c1.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.d975daaf.chunk.js"
+    "static/js/main.7e4e16ae.chunk.js"
   ]
 }
